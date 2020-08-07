@@ -1,0 +1,52 @@
+<apex:page standardcontroller="contact" extensions="contactslogicclass2">
+<apex:form >
+<apex:sectionHeader title="Accounts" Subtitle="Select any Account"/>
+<apex:pageBlock >
+<apex:pageBlockSection >
+<apex:inputField value="{!contact.accountid}" label="Select Account here" >
+<apex:actionsupport event="onchange" action="{!contactslogic}"  />
+</apex:inputfield>
+</apex:pageBlockSection>
+<apex:pageblocksection title="Create Contacts for that Account here" id="mypageblocksection" rendered="{!renderflag}">
+<apex:pageblockTable value="{!conwraplist}" var="c">
+        <apex:column headerValue="Row Number">
+          <apex:outputtext value="{!c.rownumber}"/>
+        </apex:column>
+        <apex:column headerValue="Last Name">
+          <apex:inputField value="{!c.con1.lastname}" required="false"/>
+        </apex:column>
+           <apex:column headerValue="First Name">
+          <apex:inputField value="{!c.con1.Firstname}"/>
+        </apex:column>
+                <apex:column headerValue="Birthdate">
+          <apex:inputField value="{!c.con1.birthdate}"/>
+        </apex:column>
+        <apex:column headerValue="Email">
+          <apex:inputField value="{!c.con1.email}"/>
+        </apex:column>
+        <apex:column headerValue="Phone">
+          <apex:inputField value="{!c.con1.phone}"/>
+        </apex:column>
+        <apex:column headerValue="Fax">
+          <apex:inputField value="{!c.con1.fax}"/>
+        </apex:column>
+        <apex:column headerValue="Action">
+          <apex:commandButton value="DEL" action="{!Delrow}" immediate="true" reRender="mypageblocksection">
+          <apex:param value="{!c.rowNumber}" name="Del Row"   assignTo="{!deleterownumber}"/>
+         </apex:commandButton>
+       </apex:column>
+</apex:pageblockTable>
+</apex:pageblocksection>
+<apex:commandButton Value="Add Row"  rendered="{!renderflag}" rerender="mypageblocksection" immediate="true">
+<apex:param value="1" assignTo="{!noofrows}" />
+</apex:commandbutton>
+<apex:commandButton Value="Add 5 Rows"  rendered="{!renderflag}" rerender="mypageblocksection" immediate="true">
+<apex:param value="5" assignTo="{!noofrows}" />
+</apex:commandbutton>
+<apex:pageblockSection rendered="{!renderflag}">
+<apex:commandButton Value="Save" action="{!save}" immediate="true"/> 
+<apex:commandButton Value="Cancel" action="{!cancel}" immediate="true"/>
+</apex:pageblockSection>
+</apex:pageBlock>
+</apex:form>
+</apex:page>

@@ -1,0 +1,13 @@
+<apex:page standardController="Batch__c" extensions="batchsave" >
+    <apex:form >
+        <apex:pageblock >
+            <apex:pageblocksection >
+                <apex:inputfield value="{!mybatch.name}" />
+                <apex:inputfield value="{!mybatch.Faculty_Name__c}"/>
+                <apex:inputfield value="{!mybatch.Date_of_Starting__c}"/>
+                <apex:inputfield value="{!mybatch.programs__c}"/>
+                <apex:commandbutton Value="Save" action="{!save}"/>
+            </apex:pageblocksection>
+        </apex:pageblock>
+    </apex:form>
+</apex:page>

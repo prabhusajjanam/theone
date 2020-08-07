@@ -1,0 +1,31 @@
+<apex:page standardController="account">
+<apex:form >
+<apex:pageblock title="Contacts: Facet Example">
+<apex:datatable value="{!account.contacts}" var="a" cellpadding="4" border="3">
+<apex:column >
+<apex:facet name="header">Name</apex:facet>
+{!a.name}
+</apex:column>
+<apex:column >
+<apex:facet name="header">Phone</apex:facet>
+{!a.phone}
+</apex:column>
+</apex:datatable>
+<apex:pageblocksection >
+<apex:selectRadio layout="pagedirection">
+<apex:selectOption itemlabel="India" itemvalue="1"></apex:selectOption>
+<apex:selectOption itemlabel="US" itemvalue="1"></apex:selectOption>
+<apex:selectOption itemlabel="UK" itemvalue="1"></apex:selectOption>
+<apex:selectOption itemlabel="Australia" itemvalue="1"></apex:selectOption>
+<apex:selectOption itemlabel="Newzealand" itemvalue="1"></apex:selectOption>
+</apex:selectRadio>
+      <apex:selectRadio layout="pageDirection">
+          <apex:selectOption itemLabel="One" itemValue="1"></apex:selectOption>
+          <apex:selectOption itemLabel="Two" itemValue="2"></apex:selectOption>
+          <apex:selectOption itemLabel="Three" itemValue="3"></apex:selectOption>
+          <apex:selectOption itemLabel="Four" itemValue="4"></apex:selectOption>
+      </apex:selectRadio>
+</apex:pageblocksection>
+</apex:pageblock>
+</apex:form>
+</apex:page>

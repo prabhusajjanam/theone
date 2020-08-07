@@ -1,0 +1,15 @@
+<apex:page controller="pgref_logic">
+<apex:form >
+<apex:pageblock >
+<apex:commandButton value="Customer - Direct Account List" action="{!directacts}"/>
+<apex:commandButton value="Customer - Channel Account List" action="{!channelacts}"/>
+<apex:pageblockTable value="{!acts}" var="a">
+    <apex:column value="{!a.name}"/>
+    <apex:column value="{!a.type}"/>
+    <apex:column value="{!a.industry}"/>
+    <apex:column value="{!a.phone}"/>
+    <apex:column value="{!a.fax}"/>
+</apex:pageblockTable>
+</apex:pageblock>
+</apex:form> 
+</apex:page>

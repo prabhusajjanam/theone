@@ -1,0 +1,23 @@
+<apex:page controller="apexradio">
+<apex:form >
+<apex:pageblock title="Select your contry">
+<apex:selectRadio value="{!country}">
+<apex:actionSupport event="onclick"  rerender="out"/>
+<apex:selectOptions value="{!items}">
+</apex:selectOptions>
+</apex:selectRadio><p/>
+<apex:commandButton value="Test" action="{!test}" rerender="out" status="status"/>
+</apex:pageblock>
+</apex:form>
+<apex:outputPanel id="out">
+<apex:actionStatus id="status" startText="Testing...">
+<apex:facet name="stop">
+<apex:outputPanel >
+<br> You have Selected: </br>
+<!--<apex:outputtext value="{!country}"></apex:outputtext>-->
+{!country}
+</apex:outputPanel>
+</apex:facet>
+</apex:actionStatus>
+</apex:outputPanel>
+</apex:page>

@@ -1,0 +1,116 @@
+<apex:page controller="dquery">
+<style> 
+    .classNameForPageBlockSection
+        {
+            bgcolor: yourcolorcode !important;
+        } 
+</style>
+<apex:form >
+
+<apex:pageblock title="Account and Contact Details"  id="mainpageblock">
+<apex:pagemessages ></apex:pagemessages>
+<apex:pageblocksection columns="2">
+     <apex:facet name="header">
+         <span style="background:Blue">Account Details using Apex Code</span>
+     </apex:facet>          
+Select Account here : <apex:selectlist size="1" value="{!selectedaccount1}" onclick="">
+<apex:actionsupport event="onchange" rerender="pageblock1" />
+<apex:selectoptions value="{!acclist}"></apex:selectoptions>
+</apex:selectlist>
+<apex:commandbutton value="Account Details" action="{!display1}" rerender="mainpageblock"/>
+<apex:commandbutton value="Contact Details" action="{!condisplay1}" rerender="mainpageblock"/>
+</apex:pageblocksection>
+
+<apex:pageblocksection id="pageblock1" rendered="{!renderflag1}" >
+    <apex:facet name="header">
+         <span style="color:Blue">Account Details</span>
+     </apex:facet>
+<apex:pageblocktable value="{!acc1}" var="a1">
+<apex:column headerValue="Name">
+<apex:outputfield value="{!a1.Name}"/>
+</apex:column>
+<apex:column headerValue="Phone">
+<apex:outputfield value="{!a1.Phone}"/>
+</apex:column>
+<apex:column headerValue="Fax">
+<apex:outputfield value="{!a1.Fax}"/>
+</apex:column>
+
+</apex:pageblocktable>
+</apex:pageblocksection>
+
+<apex:pageblocksection rendered="{!conrender1}">
+ <apex:facet name="header">
+         <span style="color:Blue">Contact Details</span>
+     </apex:facet>
+<apex:pageblocktable value="{!conlist1}" var="c1">
+<apex:column headerValue="Lastname">
+<apex:outputfield value="{!c1.lastname}"/>
+</apex:column>
+<apex:column headerValue="Phone">
+<apex:outputfield value="{!c1.phone}"/>
+</apex:column>
+<apex:column headerValue="Fax">
+<apex:outputfield value="{!c1.fax}"/>
+</apex:column>
+
+</apex:pageblocktable>
+
+</apex:pageblocksection>
+
+
+
+<apex:pageblocksection columns="2" >
+     <apex:facet name="header">
+         <span style="color:Green">Account Details using visualforce</span>
+     </apex:facet>     
+Select Account here:<apex:selectlist size="1" value="{!selectedaccount2}">
+<apex:selectoption itemlabel="None" itemvalue=""></apex:selectoption>
+<apex:selectoption itemlabel="xyz1" itemvalue="xyz1"></apex:selectoption>
+<apex:selectoption itemlabel="xyz2" itemvalue="xyz2"></apex:selectoption>
+<apex:selectoption itemlabel="xyz3" itemvalue="xyz3"></apex:selectoption>
+<apex:actionsupport event="onchange" rerender="pageblock2" />
+</apex:selectlist>
+<apex:commandbutton value="Account Details" action="{!display2}" rerender="mainpageblock"/>
+<apex:commandbutton value="Contact Details" action="{!condisplay2}" rerender="mainpageblock"/>
+</apex:pageblocksection>
+<apex:pageblocksection id="pageblock2" rendered="{!renderflag2}" >
+  <apex:facet name="header">
+         <span style="color:Green">Account Details</span>
+     </apex:facet>  
+<apex:pageblocktable value="{!acc2}" var="a2">
+<apex:column headerValue="Name">
+<apex:outputfield value="{!a2.Name}"/>
+</apex:column>
+<apex:column headerValue="Phone">
+<apex:outputfield value="{!a2.Phone}"/>
+</apex:column>
+<apex:column headerValue="Fax">
+<apex:outputfield value="{!a2.Fax}"/>
+</apex:column>
+
+</apex:pageblocktable>
+</apex:pageblocksection>
+
+
+<apex:pageblocksection rendered="{!conrender2}">
+ <apex:facet name="header">
+         <span style="color:Green">Contact Details</span>
+     </apex:facet>
+<apex:pageblocktable value="{!conlist2}" var="c2">
+<apex:column headerValue="Lastname">
+<apex:outputfield value="{!c2.lastname}"/>
+</apex:column>
+<apex:column headerValue="Phone">
+<apex:outputfield value="{!c2.phone}"/>
+</apex:column>
+<apex:column headerValue="Fax">
+<apex:outputfield value="{!c2.fax}"/>
+</apex:column>
+
+</apex:pageblocktable>
+
+</apex:pageblocksection>
+</apex:pageblock>
+</apex:form>
+</apex:page>

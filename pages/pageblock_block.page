@@ -1,0 +1,22 @@
+<apex:page controller="pageblock_tab">
+<apex:pageblock >
+<apex:pageblocksection columns="1" title="Channel Accounts">
+<apex:pageblocktable value="{!channel_acts}" var="a">
+<apex:column value="{!a.name}"/>
+<apex:column value="{!a.type}"/>
+<apex:column value="{!a.industry}"/>
+<apex:column value="{!a.phone}"/>
+<apex:column value="{!a.fax}"/>
+</apex:pageblocktable>
+</apex:pageblocksection>
+<apex:pageblocksection columns="1" title="Direct Accounts">
+<apex:pageblocktable value="{!direct_acts}" var="a">
+<apex:column value="{!a.name}"/>
+<apex:column value="{!a.type}"/>
+<apex:column value="{!a.industry}"/>
+<apex:column value="{!a.phone}"/>
+<apex:column value="{!a.fax}"/>
+</apex:pageblocktable>
+</apex:pageblocksection>
+</apex:pageblock>
+</apex:page>

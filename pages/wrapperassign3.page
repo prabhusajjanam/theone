@@ -1,0 +1,41 @@
+<apex:page standardController="contact" extensions="contact2" >
+  <apex:form >
+
+        <apex:pagemessages ></apex:pagemessages>
+        <apex:actionStatus id="StatusIcon" >
+                <apex:facet name="start" >
+                  <img src="/img/loading.gif" />                    
+                </apex:facet>
+            </apex:actionStatus>
+    
+    <apex:pageBlock title="Bulk Contact Create">
+      <apex:pageBlockTable value="{!wrappers}" var="wrapper" id="wtable">
+         <apex:column headerValue="Ident">
+            <apex:outputText value="{!wrapper.ident}"/>
+         </apex:column>
+         <apex:column headerValue="Name">
+            <apex:inputField value="{!wrapper.con.LastName}"/>
+         </apex:column>
+         <apex:column headerValue="Account">
+            <apex:inputField value="{!wrapper.con.AccountId}"/>
+         </apex:column>
+         <apex:column headerValue="Level">
+            <apex:inputField value="{!wrapper.con.Level__c}"/>
+         </apex:column>
+        
+         <apex:column headerValue="Action">
+            <apex:commandButton value="Delete" action="{!delWrapper}" rerender="wtable">
+               <apex:param name="toDelIdent" value="{!wrapper.ident}" assignTo="{!toDelIdent}"/> 
+            </apex:commandButton>
+         </apex:column>
+      </apex:pageBlockTable>
+      <apex:commandButton value="Add Row" action="{!addRows}" status="StatusIcon" >
+         <apex:param name="addCount" value="1" assignTo="{!addCount}"/> 
+      </apex:commandButton>
+      <apex:commandButton value="Add 5 Rows" action="{!addRows}" rerender="wtable" immediate="true">
+         <apex:param name="addCount" value="5" assignTo="{!addCount}"/> 
+      </apex:commandButton>
+      <apex:commandButton value="Save" action="{!save}"/>        
+</apex:pageBlock>
+</apex:form>
+</apex:page>

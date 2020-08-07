@@ -1,0 +1,26 @@
+<apex:page controller="NewAndExistingController" >
+    <apex:form >
+        <apex:pageBlock mode="edit">
+            <apex:pageMessages />
+            <apex:outputPanel id="someid">
+            <apex:pageBlockSection >
+                <apex:inputField value="{!Acc.name}">
+                    <apex:actionsupport event="onchange" rerender="DispId" action="{!savezTwo}" />
+                </apex:inputField>
+                <apex:inputField value="{!Acc.phone}" >
+                        <apex:actionsupport event="onchange" rerender="DispId" action="{!savez}" />
+                </apex:inputField>
+                <apex:inputField value="{!Acc.industry}"/>
+            </apex:pageBlockSection>
+                </apex:outputPanel>
+        <!--    <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Save" >
+                    <apex:actionsupport event="onclick" rerender="DispId" action="{!savez}" />
+                </apex:commandButton>
+            </apex:pageBlockButtons>-->
+             <apex:outputpanel id="DispId"> 
+  {!acc.name}
+ </apex:outputpanel> 
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

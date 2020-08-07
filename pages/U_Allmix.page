@@ -1,0 +1,41 @@
+<apex:page standardController="Contact" extensions="U_Extension_Allmix">
+<apex:form >
+<apex:pageblock title="Insert Multiple Contacts for an Account"  >
+<apex:pageblockSection >
+<apex:inputfield value="{!contact.accountid}" >
+<apex:actionsupport event="onchange" action="{!logicmethod}"/>
+</apex:inputfield>
+</apex:pageblockSection>
+<apex:actionregion id="aregion" rendered="{!renderflag}">
+<apex:pageblocksection title="Cotact creation is here" id="contactcreation" >
+<apex:pageblocktable value="{!wrapperlist}" var="w">
+<apex:column headervalue="Rownumber">
+<apex:outputtext value="{!w.therownumber}"/>
+</apex:column>
+<apex:column headerValue="Contact Last Name">
+<apex:inputfield value="{!w.thecon.lastname}"/>
+</apex:column>
+<apex:column headerValue="Action">
+<apex:commandButton value="Delete" action="{!rem}" rerender="contactcreation" immediate="true">
+<apex:param value="{!w.therownumber}" name="Del Row" assignto="{!deleterownumber}"/>
+</apex:commandButton>
+</apex:column>
+</apex:pageblocktable>
+</apex:pageblocksection>
+</apex:actionregion>
+
+<apex:commandbutton value="Add 1" action="{!add}" rerender="contactcreation" immediate="true" rendered="{!renderflag}">
+<apex:param value="1" assignTo="{!addquantity}" />
+</apex:commandbutton>
+<apex:commandbutton value="Add 5" action="{!add}" rerender="contactcreation" immediate="true" rendered="{!renderflag}">
+<apex:param value="5" assignTo="{!addquantity}" />
+</apex:commandbutton>
+<apex:outputPanel ></apex:outputPanel>
+<apex:commandbutton value="Save" action="{!Save}" rendered="{!renderflag}"/>
+<apex:commandButton value="Cancel" action="{!Cancel}" rendered="{!renderflag}"/>
+<apex:outputText id="outputtext" value="Insert Succcesful" rendered="{!Outputtext}"></apex:outputText>
+
+
+</apex:pageblock>
+</apex:form>
+</apex:page>

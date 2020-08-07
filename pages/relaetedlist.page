@@ -1,0 +1,33 @@
+<apex:page standardController="Account"  extensions="ext1">
+<apex:pageBlock title="{!Account.Name}">
+<apex:tabPanel switchType="ajax"> 
+   <apex:tab label="Details Tab" labelWidth="200">
+   <apex:detail relatedlist="false" title="false"/>
+   </apex:tab>
+   
+   <apex:tab label="Contacts" labelWidth="200">
+   <apex:relatedList list="contacts"/>
+   </apex:tab>
+   
+      <apex:tab label="Oppurtunities" labelWidth="200">
+   <apex:relatedList list="opportunities"/>
+   </apex:tab>
+   
+      <apex:tab label="Cases" labelWidth="200">
+   <apex:relatedList list="cases"/>
+   </apex:tab>
+   
+   
+   <apex:tab label="Campaigns" labelWidth="200">
+    <apex:pageBlockTable value="{!camps}" var="c">
+      <apex:column value="{!c.Name}"/>
+      <apex:column value="{!c.StartDate}"/>
+      <apex:column value="{!c.EndDate}"/>
+      <apex:column value="{!c.Budgetedcost}"/>
+    
+    </apex:pageBlockTable>
+   </apex:tab>
+</apex:tabPanel>
+
+</apex:pageBlock>
+</apex:page>

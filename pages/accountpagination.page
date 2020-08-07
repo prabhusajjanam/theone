@@ -1,0 +1,55 @@
+<apex:page standardController="Account" recordSetVar="Accounts" sidebar="True">
+<apex:form >
+<apex:sectionHeader title="Account" subtitle="Pagination"/>
+<apex:messages id="messages"/>
+<apex:pageblock >
+<apex:pageblocksection >
+    <apex:pageblocksectionItem >
+    <apex:panelgrid columns="4" id="panels">
+        <apex:commandbutton value="First" action="{!First}" disabled="{!!hasprevious}" />
+        <apex:commandbutton value="Previous" action="{!Previous}" disabled="{!!hasprevious}" />
+        <apex:commandbutton value="Next" action="{!next}" disabled="{!!hasnext}" />
+        <apex:commandbutton value="last" action="{!last}" disabled="{!!hasnext}" /> 
+    </apex:panelgrid>
+    </apex:pageblocksectionItem>
+        <apex:pageblocksectionItem >
+    <apex:panelgrid columns="2" id="panels2">
+        <apex:commandbutton value="Save" action="{!Save}" />
+        <apex:commandbutton value="Cancel" action="{!Cancel}" />
+    </apex:panelgrid>
+    </apex:pageblocksectionItem>
+    </apex:pageblocksection>
+    <apex:pageblocksection >
+    <table cellpadding="2" cellspacing="2"  style="padding-left:20px">
+       <tr> 
+          <td><b> Account          </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td><b> Contact Lastname </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td> 
+          <td><b> Contact Email    </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td><b> Contact Phone    </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>       
+       </tr>
+       <apex:repeat value="{!accounts}" var="a">
+       <tr>
+           <td><b> {!a.Name}</b> </td> 
+                           <apex:repeat value="{!a.contacts}" var="c" >
+                              <tr>
+                    
+                               <td> {!c.lastname}</td>
+                            
+                           
+                               <td> {!c.email} </td>
+                        
+                          
+                               <td> {!c.phone} </td> 
+                       
+                               </tr>
+                           </apex:repeat>    
+       </tr> 
+       </apex:repeat>  
+           <apex:inlineEditSupport event="onclick"/> 
+    </table>
+
+    </apex:pageblocksection>
+     
+</apex:pageblock>
+</apex:form>
+</apex:page>

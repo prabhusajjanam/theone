@@ -1,0 +1,54 @@
+<apex:page sidebar="false" controller="FileUploader" showHeader="false">
+   <apex:form >
+      <apex:sectionHeader title="Upload Leads from CSV file"/>
+  
+      <apex:pageBlock >
+             <!--  Component to allow user to upload file from local machine -->
+             <center>
+              <apex:inputFile value="{!contentFile}" filename="{!nameFile}" /> <apex:commandButton action="{!ReadFile}" value="Upload File" id="theButton" style="width:70px;"/>
+              <br/> <br/> <font color="red"> <b>Note: Please use the standard template to upload Leads. <a href="/servlet/servlet.FileDownload?file=015O00000016XLt" target="_blank"> Click here </a> to download the template. </b> </font>
+             </center> 
+     
+      <!-- After the user clicks the 'Upload File' button, this section displays the inserted data -->
+      <apex:outputText value="leads Created" rendered="{!NOT(ISNULL(uploadedLeads))}"/>
+      <apex:pageblocktable value="{!uploadedLeads}" var="lead" rendered="{!NOT(ISNULL(uploadedLeads))}">
+          <apex:column headerValue="First Name">
+              <apex:outputField value="{!lead.FirstName}"/>
+          </apex:column>
+          <apex:column headerValue="Last Name">
+              <apex:outputField value="{!lead.LastName}"/>
+          </apex:column>
+          <apex:column headerValue="Lead Source">
+              <apex:outputField value="{!lead.leadSource}"/>
+          </apex:column>
+          <apex:column headerValue="Email">
+              <apex:outputField value="{!lead.email}"/>
+          </apex:column>
+          <apex:column headerValue="Company">
+              <apex:outputField value="{!lead.company}"/>
+          </apex:column>
+        
+      </apex:pageblocktable>
+        <apex:outputText value="leads Not Created:Due to some error" rendered="{!NOT(ISNULL(NotuploadedLeads))}"/>
+       <apex:pageblocktable value="{!NotuploadedLeads}" var="lead" rendered="{!NOT(ISNULL(NotuploadedLeads))}">
+          <apex:column headerValue="First Name">
+              <apex:outputField value="{!lead.FirstName}"/>
+          </apex:column>
+          <apex:column headerValue="Last Name">
+              <apex:outputField value="{!lead.LastName}"/>
+          </apex:column>
+          <apex:column headerValue="Lead Source">
+              <apex:outputField value="{!lead.leadSource}"/>
+          </apex:column>
+          <apex:column headerValue="Email">
+              <apex:outputField value="{!lead.email}"/>
+          </apex:column>
+          <apex:column headerValue="Company">
+              <apex:outputField value="{!lead.company}"/>
+          </apex:column>
+        
+      </apex:pageblocktable>
+     
+      </apex:pageBlock>      
+   </apex:form>  
+</apex:page>

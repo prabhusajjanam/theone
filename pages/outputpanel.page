@@ -1,0 +1,12 @@
+<apex:page standardController="Account">
+<apex:form >
+    {!Account.name} 
+
+    <apex:outputpanel >
+    <apex:outputlabel >
+
+    
+    </apex:outputlabel>
+    </apex:outputpanel>
+</apex:form>
+</apex:page>

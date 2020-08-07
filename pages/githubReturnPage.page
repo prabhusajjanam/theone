@@ -1,0 +1,12 @@
+<apex:page controller="githubReturnPageCtr" action="{!getcode}">
+    <apex:form >
+        <apex:outputText >Code returned from authorize Call is : {!returnCode}</apex:outputText>
+        <apex:outputText > Response returned from access token call : {!response}</apex:outputText>
+        <div>
+            
+        </div>
+    <apex:outputText > Actual response returned using access token: {!actualResponse}</apex:outputText>
+   </apex:form>
+        
+    
+</apex:page>

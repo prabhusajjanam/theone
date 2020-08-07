@@ -1,0 +1,45 @@
+<apex:page controller="SelectOptionController">
+ <apex:form > 
+   <apex:commandbutton value="Show Values" action="{!show}"/>
+   
+   <apex:pageBlock id="p1">    
+   <apex:outputLabel > Account Name : </apex:outputLabel>
+    <apex:selectList size="1" value="{!selectedAccount}">
+      <apex:selectOptions value="{!acclist}"/>
+    </apex:selectList> <br/>
+    <apex:outputLabel > Countries : </apex:outputLabel>
+    <apex:selectList size="1" value="{!selectedCountry}">
+      <apex:selectOptions value="{!countrieLst }"/>
+    </apex:selectList> <br/>
+    
+    <apex:outputLabel > Gender : </apex:outputLabel>
+    <apex:selectRadio value="{!selectedGender}"> 
+     <apex:selectOptions value="{!genderLst}"/>
+    </apex:selectRadio>  
+    
+     <apex:outputLabel > Hobbies :</apex:outputLabel>
+    <apex:selectList size="1" value="{!selectedHobby}">
+     <apex:selectOption itemLabel="--None--" itemvalue=""></apex:selectOption>
+     <apex:selectOption itemLabel="Swimming" itemvalue="Swimming"></apex:selectOption>
+     <apex:selectOption itemLabel="Reading" itemvalue="Reading"></apex:selectOption>
+     <apex:selectOption itemLabel="Cricket" itemvalue="Cricket"></apex:selectOption>
+    </apex:selectList>    
+    <apex:commandbutton value="Show Values1" action="{!show1}" rerender="p2" />  <br/><br/>
+    <apex:pageBlockTable title="acc indetail" value="{!a}" var="a1" id="p2">
+    <apex:column headerValue="Name">
+    <apex:outputField value="{!a1.name}"/></apex:column>
+    <apex:column headerValue="Phone">
+    <apex:outputField value="{!a1.phone}"/></apex:column>
+    <apex:column headerValue="Fax">
+    <apex:outputField value="{!a1.fax}"/></apex:column>
+    <apex:column headerValue="Id">
+    <apex:outputField value="{!a1.id}"/></apex:column>
+    
+     </apex:pageBlockTable> 
+    </apex:pageBlock> 
+   
+   
+   
+ </apex:form>
+
+</apex:page>

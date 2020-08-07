@@ -1,0 +1,4 @@
+<apex:page controller="demo">
+{!mystring}<br/>
+{!mystring2}
+</apex:page>

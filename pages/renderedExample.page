@@ -1,0 +1,39 @@
+<apex:page controller="exampleCon">
+    <apex:form >
+    <apex:actionFunction name="makeDelayedApexMethodCallout" action="{!incrementCounter}" rerender="counter" status="counterStatus"/>
+        </apex:form>
+    <script>
+    	window.setTimeout(makeDelayedApexMethodCallout,7000)
+    </script>
+    <apex:form >
+        <apex:outputpanel id="counter">
+            <apex:outputText value="Click Me-1!: {!count}"/>
+            <apex:actionSupport event="onmouseover" 
+                                action="{!incrementCounter}" 
+                                rerender="counter" status="counterStatus"/>
+        </apex:outputpanel>
+        <br/>
+        
+          <apex:outputpanel id="counter2">
+            <apex:outputText value="Click Me-2!: {!count}"/>
+        </apex:outputpanel>
+        
+            <br/>
+
+          <apex:outputpanel id="counter3">
+            <apex:outputText value="Click Me-3!: {!count}"/>
+        </apex:outputpanel>
+        
+            <br/>
+
+          <apex:outputpanel id="counter4">
+            <apex:outputText value="Click Me-4!: {!count}"/>
+        </apex:outputpanel>
+        
+            <br/>
+
+        <apex:actionStatus id="counterStatus" 
+                           startText=" (incrementing...)" 
+                           stopText=" (done)"/>
+    </apex:form>
+</apex:page>

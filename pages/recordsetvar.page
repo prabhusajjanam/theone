@@ -1,0 +1,29 @@
+<apex:page standardController="Account" recordSetVar="accounts" tabstyle="account">
+<apex:form id="privacy_form">
+<apex:pageBlock title="Names and industry usning pagelogic" >
+<apex:messages lang="English" title="mytitle" style="bold" />
+<apex:pageBlockButtons >
+<apex:commandButton value="Save" action="{!save}"/>
+<apex:commandButton value="Edit" action="{!Edit}"/>
+</apex:pageBlockButtons>
+<apex:pageBlockTable var="p" value="{!accounts}">
+<apex:column headervalue="Ha ha Account name"  value="{!p.name}"/>
+<apex:column value="{!p.industry}"/>
+<apex:column headerValue="Is this Private?">
+<apex:inputCheckbox value="{!p.isprivate__c}"/>
+</apex:column>
+<apex:column >
+<!--<apex:inputText value="{!p.industry}" required="true" ><b>Industry</b>&nbsp;&nbsp;</apex:inputText>-->
+<apex:inputfield value="{!p.industry}"/>
+</apex:column>
+</apex:pageBlockTable>
+</apex:pageBlock>
+<apex:pageBlock title="Names with industry" >
+<apex:dataList var="a" value="{!accounts}" type="1">
+{!a.name} is the account with industry as {!a.industry}
+</apex:dataList>
+
+<apex:detail subject="{!account.ownerId}" relatedList="false" title="false"/>
+</apex:pageBlock>
+</apex:form>
+</apex:page>

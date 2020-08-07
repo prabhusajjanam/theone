@@ -1,0 +1,18 @@
+<apex:page standardController="Account" Extensions="wrapperclassdemo2">
+<apex:form >
+<apex:sectionHeader title="Assignment" subtitle="Wrapper"/>
+<apex:pageblock title="LIST OF ACCOUNTS WITH CHECKBOXES" id="pg">
+<apex:pageblocktable value="{!actualwrappermethod}" var="a">
+<apex:column value="{!a.acc.name}"/>
+<apex:column headervalue="Contact Name" value="{!a.cont.lastname}"/>
+<apex:column headervalue="Checkbox">
+<apex:inputcheckbox value="{!a.checkbox}"/>
+</apex:column>
+</apex:pageblocktable>
+<apex:pageblockbuttons >
+<apex:commandbutton value="Checkbox check"  action="{!calcmethod}"/>
+</apex:pageblockbuttons>
+<apex:pageMessages ></apex:pageMessages>
+</apex:pageblock>
+</apex:form>
+</apex:page>

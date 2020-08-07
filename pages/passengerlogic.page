@@ -1,0 +1,8 @@
+<apex:page standardcontroller="Passenger__c" extensions="passengerlogicclass">
+<apex:form >
+<apex:pageblock >
+<apex:inputfield value="{!Passenger__c.name}"/>
+<apex:commandbutton value="Save" action="{!save}"/>
+</apex:pageblock>
+</apex:form>
+</apex:page>

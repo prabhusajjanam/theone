@@ -1,0 +1,26 @@
+<apex:page controller="DynamicBindingsMapExample">
+  <apex:form >
+    <apex:actionFunction name="redraw_accounts" rerender="accs" status="status"/>
+    <apex:pageBlock title="Criteria">
+       <apex:outputLabel value="Starting Letter"/>
+       <apex:selectList value="{!selectedKey}" size="1" onchange="redraw_accounts()">
+          <apex:selectOptions value="{!keys}" />
+       </apex:selectList>
+    </apex:pageBlock>
+    <apex:pageBlock title="Accounts">
+       <apex:actionstatus id="status">
+          <apex:facet name="start"/>
+          <apex:facet name="stop">
+             <apex:outputPanel id="accs">
+                <apex:pageBlockTable value="{!accountsMap[selectedKey]}" var="acc">
+                   <apex:column value="{!acc.name}"/>
+                   <apex:column value="{!acc.BillingStreet}"/>
+                   <apex:column value="{!acc.BillingCity}"/>
+                   <apex:column value="{!acc.BillingPostalCode}"/>
+                </apex:pageBlockTable>
+             </apex:outputPanel>
+          </apex:facet>
+       </apex:actionstatus>
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

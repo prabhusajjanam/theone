@@ -1,0 +1,4 @@
+<apex:page controller="github_ncctr" action="{!getIssues}">
+    
+    respone is : {!response}
+</apex:page>

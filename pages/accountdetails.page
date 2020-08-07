@@ -1,0 +1,19 @@
+<apex:page standardcontroller="account" recordSetVar="accounts"  extensions="Accountdetails" >
+<apex:form >
+<apex:pageblock >
+<apex:pageblocksection >
+<apex:selectList size="1" value="{!selectedid}">
+<apex:actionsupport event="onchange" action="{!mymethod1}" rerender="pageblock1"/>
+<apex:SelectOptions value="{!accso}">
+</apex:SelectOptions>
+</apex:selectList>
+</apex:pageblocksection>
+<apex:pageblocksection id="pageblock1" >
+<apex:pageblocktable value="{!conlist}" var="c">
+<apex:column headerValue="Lastname" value="{!c.lastname}"/>
+<apex:column headerValue="Phone" value="{!c.phone}"/>
+</apex:pageblocktable>
+</apex:pageblocksection>
+</apex:pageblock>
+</apex:form>
+</apex:page>

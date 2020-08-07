@@ -1,0 +1,5 @@
+<apex:page standardController="Account">
+    <apex:repeat value="{!$objecttype.account.FieldSets.mySpecialFields}" var="field">
+        <apex:outputText value="{!field}" /> <br/>
+    </apex:repeat>
+</apex:page>

@@ -1,0 +1,26 @@
+<apex:page controller="addRowsCtr" >
+ 
+    
+    <apex:form >
+       <apex:pageBlock >
+    <apex:pageBlockSection >
+        
+      <apex:pageblocktable value="{!contacts}" var="cc" >
+          <apex:column >
+                    <apex:inputField value="{!cc.Name}"/>
+          </apex:column>
+          <apex:column >
+                    <apex:inputField value="{!cc.Email}"/>
+          </apex:column>
+      </apex:pageblocktable>
+    </apex:pageBlockSection>
+           
+    
+    <apex:pageBlockButtons >
+                <apex:commandButton value="Add Row" action="{!addRow}"/>
+    </apex:pageBlockButtons>
+        
+        
+    </apex:pageBlock>
+        </apex:form>
+</apex:page>

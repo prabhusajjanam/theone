@@ -1,0 +1,14 @@
+<apex:page controller="mycustomsettings">
+<apex:form >
+<apex:sectionHeader title="Custom" Subtitle="Settings"/>
+<apex:pageblock title="List of iso codes used in custom settings" >
+<apex:pageblocksection >
+<apex:selectlist value="{!selectedvalue}" size="1">
+<apex:selectoptions value="{!myisocodes}">
+</apex:selectoptions>
+</apex:selectlist>
+<apex:commandButton action="{!mymethod}" value="Debug"/>
+</apex:pageblocksection>
+</apex:pageblock>
+</apex:form>
+</apex:page>

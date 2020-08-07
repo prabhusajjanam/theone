@@ -1,0 +1,23 @@
+<apex:page standardController="Account">
+<style>
+    .actionStyle{
+        color: #015ba7 !important;
+        text-decoration: none;
+        font-weight: normal;
+        vertical-align : middle;
+    }
+</style>
+
+<apex:form id="thisForm">
+<button>
+<a target="_top" styleClass="btn" style="text-decoration:none;padding:4px;"  href="javascript:if (window.confirm('Are you sure?')) DeleteReq();">del</a>
+</button>
+<a><apex:commandLink target="_top" styleClass="btn" style="text-decoration:none;padding:4px;" action="javascript:if (window.confirm('Are you sure?')) DeleteReq(); " value="Del"/></a>
+
+<button  href="javascript:if (window.confirm('Are you sure?')) DeleteReq();" type="button">
+     www.example.com</button>
+    <apex:actionFunction action="{!save}" name="DeleteReq" reRender="thisForm">
+    </apex:actionFunction> 
+    
+</apex:form>
+</apex:page>

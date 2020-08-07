@@ -1,0 +1,5 @@
+<apex:page controller="JSONExample3" >
+    Account serialize : {! result1} <br/>
+    Account deserialize.untyped : {! result12} <br/>
+    Decimal :{! result3}
+</apex:page>

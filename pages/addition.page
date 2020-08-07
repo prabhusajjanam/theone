@@ -1,0 +1,13 @@
+<apex:page controller="visualadd">
+<apex:form >
+<apex:pageblock title="Addition of Integers"  >
+<apex:pageblockSection >
+Enter the value of Integer1: <apex:inputtext size="3" value="{!field1}"/><br/>
+Enter the value of Integer2: <apex:inputtext size="3" value="{!field2}"/><br/>
+<apex:commandButton value="Add two integers" action="{!myadd}" onclick="{!field4}"/>
+Addition of Integers is: <apex:outputtext > value = "{!field3}"</apex:outputtext> 
+Number of clicks are: <apex:outputtext > value = "{!field4}"</apex:outputtext>
+</apex:pageblockSection>
+</apex:pageblock>
+</apex:form>
+</apex:page>

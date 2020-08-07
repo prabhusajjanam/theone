@@ -1,0 +1,18 @@
+<apex:page standardController="contact" extensions="provethat1">
+<apex:form >
+<apex:sectionHeader title="Prove that" subtitle="How wrapper works"/>
+<apex:pageblock >
+<apex:pageblockSection title="Contacts">
+<apex:pageblocktable value="{!mywrapperlist}" var="wrapper">
+<apex:column headerValue="Lastname">
+<apex:inputfield value="{!wrapper.con.lastname}"/>
+</apex:column>
+<apex:column headerValue="Account Id">
+<apex:inputfield value="{!wrapper.con.accountid}"/>
+</apex:column>
+</apex:pageblocktable>
+<apex:commandButton value="Save" action="{!Save}" />
+</apex:pageblockSection>
+</apex:pageblock>
+</apex:form>
+</apex:page>

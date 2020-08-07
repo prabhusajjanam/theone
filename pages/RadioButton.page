@@ -1,0 +1,56 @@
+<apex:page controller="RadioButton" showheader="false" action="{!onloadFunction}">
+<apex:form >
+<apex:pageblock id="allcons" title="Available Contacts">
+<!-- Table to diaplay list of contacts, user selects one of these ccontacts by clicking the radio button -->
+               <apex:pageblocktable id="allcons" value="{!AllContacts}" var="allcon">
+                   <apex:variable value="{!0}" var="cnt"/>    <!-- This counter is used to track the row number which is then sent to the apex class when a radio button is clicked -->
+                    <apex:column headervalue="Set as Primary">                    
+                       <apex:outputpanel rendered="{!allcon.isSelected}">
+                            <input type="radio" checked="true"/>
+                        </apex:outputpanel>
+                       
+                       <apex:outputpanel rendered="{!NOT(allcon.isSelected)}">
+                           <apex:actionsupport action="{!selectcon}" event="onclick" rerender="consel,allcons">  <!-- We use AJAX to call an apex function when a radio button is clicked -->
+                            <input type="radio" />                    
+                                <apex:param name="index" value="{!cnt}"/>
+                                <apex:param name="conid" value="{!allcon.con.Id}">
+                            </apex:param>
+                            </apex:actionsupport>
+                       </apex:outputpanel>
+                       <apex:variable var="cnt" value="{!cnt+1}"/>                                  
+                    </apex:column>    
+                    <apex:column headervalue="Last Name">
+                        <apex:outputfield value="{!allcon.con.LastName}">
+                    </apex:outputfield></apex:column> 
+                    <apex:column headervalue="First Name">
+                        <apex:outputfield value="{!allcon.con.FirstName}">
+                    </apex:outputfield></apex:column>  
+                    <apex:column headervalue="Email">
+                        <apex:outputfield value="{!allcon.con.Email}">
+                    </apex:outputfield></apex:column>  
+                    <apex:column headervalue="Phone">
+                        <apex:outputfield value="{!allcon.con.Phone}">
+                    </apex:outputfield></apex:column>  
+                </apex:pageblocktable>
+</apex:pageblock> 
+<apex:pageblock id="consel" title="Selected Contact">
+
+<!-- Table to display the selected contact (from the table above) -->
+
+            <apex:pageblocktable id="allcons" value="{!selectedContact}" var="selcon">                       
+                    <apex:column headervalue="Last Name">
+                        <apex:outputfield value="{!selcon.LastName}">
+                    </apex:outputfield></apex:column> 
+                    <apex:column headervalue="First Name">
+                        <apex:outputfield value="{!selcon.FirstName}">
+                    </apex:outputfield></apex:column>  
+                    <apex:column headervalue="Email">
+                        <apex:outputfield value="{!selcon.Email}">
+                    </apex:outputfield></apex:column>  
+                    <apex:column headervalue="Phone">
+                        <apex:outputfield value="{!selcon.Phone}">
+                    </apex:outputfield></apex:column>  
+                </apex:pageblocktable>
+</apex:pageblock>               
+</apex:form>
+</apex:page>

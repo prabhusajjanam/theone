@@ -1,0 +1,19 @@
+<apex:page controller="mysearchclass">
+<apex:form >
+<apex:pageblock title="Search Accounts">
+<apex:inputtext size="30" value="{!keyword}"/>
+<apex:commandbutton value="Search the accounts" action="{!mysearch}"/>
+<apex:pageblocksection title="Search Results" Collapsible="false" columns="1">
+<apex:pageblocktable value="{!acts}" var="a">
+<apex:column value="{!a.Name}"/>
+<apex:column headervalue="Account9id" >
+<apex:commandlink value="https://ap2.salesforce.com/{!a.id}"/>
+</apex:column>
+<apex:column value="{!a.id}"/>
+<apex:column value="{!a.phone}"/>
+<apex:column value="{!a.industry}"/>
+</apex:pageblocktable>
+</apex:pageblocksection>
+</apex:pageblock>
+</apex:form>
+</apex:page>

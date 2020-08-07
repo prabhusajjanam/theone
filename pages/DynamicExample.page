@@ -1,0 +1,65 @@
+<apex:page controller="DynamicExample">
+    <style>
+        .block{
+            width:150px;
+            height:150px;
+        }
+    </style>
+    <apex:form >
+        <apex:pageBlock title="Schema Example">
+            <apex:pageBlockButtons location="bottom" >
+                <apex:commandButton value="Query" action="{!formQuery}" />
+                <apex:commandButton value="AddFilter" action="{!createFilter}"  />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection >
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Objects" />
+                    <apex:SelectList value="{!selectedObject}" size="1">
+                        <apex:selectOptions value="{!objects}" />
+   <apex:actionSupport event="onchange" action="{!getFields}" reRender="one" status="mystat" />
+                    </apex:SelectList> 
+                </apex:pageBlockSectionItem>
+                <apex:panelGrid columns="3" id="one">
+                <apex:selectList multiselect="true" value="{!AddFields}" styleClass="block">
+                        <apex:selectOptions value="{!notSelectedOpt}" />
+                    </apex:selectList>
+                    <apex:panelGrid columns="1">
+    <apex:commandButton value="Add" action="{!addOptions}" reRender="one" status="mystat" /><br/> <br/>
+   <apex:commandButton value="Del"  action="{!removeOptions}" reRender="one" status="mystat" /> 
+                    </apex:panelGrid>
+               <apex:selectList multiselect="true" value="{!removeFields}" styleClass="block">
+                        <apex:selectOptions value="{!SelectedOpt}" />
+                    </apex:selectList>
+                    <apex:actionStatus startText="Loading Fields..." id="mystat" />
+                </apex:panelGrid>                          
+            </apex:pageBlockSection>
+            <apex:pageBlockSection columns="1" rendered="{! !ISNULL(filters)}">
+                <apex:pageBlockTable value="{!filters}" var="a" id="pb">
+                    <apex:column headerValue="Fields" >
+                        <Apex:selectList size="1" value="{!a.fldselected}">
+                            <apex:selectOptions value="{!a.fields}" />
+                        </Apex:selectList>
+                    </apex:column>
+                    <apex:column headerValue="Operators" >
+                        <Apex:selectList size="1" value="{!a.optSelected}">
+                            <apex:selectOptions value="{!a.operators}" />
+                        </Apex:selectList>
+                    </apex:column>
+                    <apex:column headerValue="Value">
+                        <apex:inputText value="{!a.value}" />
+                    </apex:column>
+                    <apex:column >
+                        <apex:commandButton value="add" action="{!addFilter}" reRender="pb" />
+                   </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <apex:pageBlock title="Dynamic Result" rendered="{! !ISNULL(result)}">
+            <apex:pageBlockTable value="{!result}" var="a">
+                <apex:repeat value="{!fldList}" var="b">
+                    <apex:column value="{!a[b]}" />
+                </apex:repeat>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

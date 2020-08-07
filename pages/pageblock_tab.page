@@ -1,0 +1,24 @@
+<apex:page controller="pageblock_tab">
+<apex:pageblock >
+<apex:tabpanel >
+<apex:tab label="Customer Direct" labelwidth="400">
+<apex:pageblocktable value="{!Direct_acts}" var="a">
+<apex:column value="{!a.Name}"/>
+<apex:column value="{!a.Type}"/>
+<apex:column value="{!a.industry}"/>
+<apex:column value="{!a.phone}"/>
+<apex:column value="{!a.fax}"/>
+</apex:pageblocktable>
+</apex:tab>
+<apex:tab label="Channel Direct" labelwidth="400">
+<apex:pageblocktable value="{!channel_acts}" var="a">
+<apex:column value="{!a.Name}"/>
+<apex:column value="{!a.Type}"/>
+<apex:column value="{!a.industry}"/>
+<apex:column value="{!a.phone}"/>
+<apex:column value="{!a.fax}"/>
+</apex:pageblocktable>
+</apex:tab>
+</apex:tabpanel>
+</apex:pageblock>
+</apex:page>

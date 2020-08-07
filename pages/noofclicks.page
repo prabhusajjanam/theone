@@ -1,0 +1,11 @@
+<apex:page controller="noofclicks" id="mypage">
+<apex:form >
+<apex:pageblock title="Clicks Logic" id="pb" >
+<apex:pageblocksection title="Display Number of Clicks" columns="5">
+No of Clicks is: <apex:outputText value="{!clicks}">
+</apex:outputText>
+</apex:pageblocksection>
+</apex:pageblock>
+<apex:actionsupport event="onclick" action="{!myclicks}" rerender="pb"/>
+</apex:form>
+</apex:page>

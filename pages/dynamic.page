@@ -1,0 +1,19 @@
+<apex:page controller="dynamicvariable" >
+  <apex:form >
+  <apex:pageBlock >
+  <apex:pageBlockTable value="{!acts}" var="a">
+  <apex:column value="{!a.Name}"/>
+  <apex:column value="{!a.type}"/>
+  <apex:column value="{!a.Industry}"/>
+  <apex:column value="{!a.phone}"/>
+  <apex:column value="{!a.fax}"/>
+  </apex:pageBlockTable>
+
+  <apex:pageBlockButtons >
+  <apex:commandButton value="Channel Accounts" action="{!channel}"/>
+  <apex:commandButton value="direct Accounts" action="{!direct}"/>
+  </apex:pageBlockButtons>
+  </apex:pageBlock>
+  </apex:form>
+    
+</apex:page>

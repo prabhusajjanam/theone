@@ -1,0 +1,13 @@
+<apex:page standardController="Account" Extensions="wrapperclassdemo">
+<apex:form >
+<apex:sectionHeader title="Assignment" subtitle="Wrapper"/>
+<apex:pageblock title="LIST OF ACCOUNTS WITH CHECKBOXES">
+<apex:pageblocktable value="{!actualwrappermethod}" var="a">
+<apex:column value="{!a.acc.name}"/>
+<apex:column headervalue="Checkbox">
+<apex:inputcheckbox value="{!a.checkbox}"/>
+</apex:column>
+</apex:pageblocktable>
+</apex:pageblock>
+</apex:form>
+</apex:page>

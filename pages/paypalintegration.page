@@ -1,0 +1,39 @@
+<apex:page controller="PaypalProccessor">
+<apex:form >
+<script type="text/javascript">
+
+function myfunction() {
+sforce.apex.execute(“PaypalProcessor”,”doDirectPayment”,”readXMLResponse”,”pay” );
+alert("Remember to Submit changes that you have made!");
+
+}
+
+</script>
+<apex:sectionHeader title="Paypal Payment" subtitle="by prashisa"/>
+<apex:pageblock title="Enter Detail here"  id="pgb1">
+<apex:pageblocksection >
+Amount <apex:inputtext value="{!amount}"/>
+FirstName <apex:inputtext value="{!FirstName}"/>
+LastName <apex:inputtext value="{!LastName}"/>
+Address1 <apex:inputtext value="{!Addy1}"/>
+Address2 <apex:inputtext value="{!Addy2}"/>
+Country <apex:inputtext value="{!Country}"/>
+Card Type <apex:inputtext value="{!CardType}"/>
+Card No <apex:inputtext value="{!CardNo}"/>
+Expiry Month <apex:inputtext value="{!expMo}"/>
+Expiry Year <apex:inputtext value="{!expYe}"/>
+CVV Number <apex:inputtext value="{!CVV}"/>
+City <apex:inputtext value="{!city}"/>
+State <apex:inputtext value="{!state}"/>
+Zip <apex:inputtext value="{!zip}"/>
+Payer <apex:inputtext value="{!payer}"/>
+transid <apex:outputtext value="{!transid}"/>
+Message <apex:outputtext value="{!message}"/>
+Error <apex:outputtext value="{!err}"/>
+Response <apex:outputtext value="{!rawResponse}"/>
+<apex:commandbutton value="Proceed" action="myfunction()" onclick="alert('Please don't forget to submit!');"/>
+
+</apex:pageblocksection>
+</apex:pageblock>
+</apex:form>
+</apex:page>

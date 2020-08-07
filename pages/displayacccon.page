@@ -1,0 +1,10 @@
+<apex:page controller="accwithcontacts" >
+<apex:form >
+<apex:sectionheader title="accunts" subtitle="with contacts" />
+<apex:pageblock >
+<apex:pageblocksection title="check" >
+
+</apex:pageblocksection>
+</apex:pageblock>
+</apex:form>
+</apex:page>

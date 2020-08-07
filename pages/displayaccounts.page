@@ -1,0 +1,14 @@
+<apex:page controller="c1">
+<apex:form >
+ <apex:pageBlock title="Display All Accounts">
+    <apex:pageBlockTable value="{!acts}" var="a">
+    <apex:column value="{!a.name}"/>
+    <apex:column value="{!a.phone}"/>
+    <apex:column value="{!a.type}"/>
+    <apex:column value="{!a.fax}"/>
+    <apex:column value="{!a.industry}"/>
+    </apex:pageBlockTable>
+    <apex:inlineEditSupport />
+  </apex:pageBlock>
+ </apex:form>
+</apex:page>
