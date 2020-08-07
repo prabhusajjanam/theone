@@ -1,6 +1,6 @@
 public class dummyClassCheck {
     
-    
+    //This is my new line which I want to include as per new requirement
     public static void methodOne()
     {
         map<string,string> firstMap = new map<string,string>();
