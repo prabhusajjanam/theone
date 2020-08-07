@@ -1,3 +1,14 @@
+/**
+ * @description       : 
+ * @author            : Prabhu Sajjanam
+ * @group             : 
+ * @last modified on  : 08-07-2020
+ * @last modified by  : Prabhu Sajjanam
+ * Modifications Log 
+ * Ver   Date         Author            Modification
+ * 1.0   08-07-2020   Prabhu Sajjanam   Initial Version
+**/
+
 Public class ContactTable
 
 {
@@ -17,9 +28,7 @@ Public class ContactTable
     public boolean display{get;set;}
     
     public list<Contact> selectedList {get;set;}
-    
-    // instantiate the StandardSetController from a query locator
-    
+  
     public ApexPages.StandardSetController Setcon
         
     {
