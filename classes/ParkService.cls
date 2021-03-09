@@ -23,7 +23,7 @@ public class ParkService {
         public Integer timeout_x;
         private String[] ns_map_type_info = new String[]{'http://parks.services/', 'ParkService'};
         public String[] byCountry(String arg0) {
-            ParkService.byCountry request_x = new ParkService.byCountry();
+            /*ParkService.byCountry request_x = new ParkService.byCountry();
             request_x.arg0 = arg0;
             ParkService.byCountryResponse response_x;
             Map<String, ParkService.byCountryResponse> response_map_x = new Map<String, ParkService.byCountryResponse>();
@@ -41,7 +41,8 @@ public class ParkService {
               'ParkService.byCountryResponse'}
             );
             response_x = response_map_x.get('response_x');
-            return response_x.return_x;
+            return response_x.return_x;*/
+            return new string[];
         }
     }
 }
